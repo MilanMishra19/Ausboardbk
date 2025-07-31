@@ -128,7 +128,7 @@ public class SecurityConfig {
 
     @Bean
     public CookieSameSiteSupplier cookieSameSiteSupplier() {
-        return CookieSameSiteSupplier.ofStrict().whenHasName("JSESSIONID");
+        return CookieSameSiteSupplier.ofNone().whenHasName("JSESSIONID");
     }
     
     @Bean
