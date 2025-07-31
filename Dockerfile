@@ -1,5 +1,5 @@
 
-FROM eclipse-termurin:21-jdk-alpine as builder
+FROM eclipse-temurin:21-jdk-alpine as builder
 WORKDIR /app
 COPY .mvn/ .mvn
 COPY mvnw .
@@ -9,7 +9,7 @@ RUN chmod +x mvnw
 RUN ./mvnw dependencies:go-offline
 RUN ./mvnw clean package -DskipTests
 
-FROM eclipse-termurin:21-jdk-alpine
+FROM eclipse-temurin:21-jdk-alpine
 WORKDIR /app
 COPY --from=builder /app/target/*.jar app.jar
 EXPOSE 8080
